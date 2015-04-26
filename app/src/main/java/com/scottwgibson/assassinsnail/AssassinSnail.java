@@ -2,22 +2,45 @@ package com.scottwgibson.assassinsnail;
 
 import android.content.Intent;
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
+import android.widget.Toast;
 
+
+import com.google.android.gms.maps.model.LatLng;
 
 import java.io.Serializable;
 
 public class AssassinSnail extends Activity  {
+
+    LatLng mSnailPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_initial_screen);
+
+        Intent intent = getIntent();
+        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+
+        if( intent != null && intent.hasExtra("SnailLat") && intent.hasExtra("SnailLng"))
+        {
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putString("SnailLat", intent.getStringExtra("SnailLat"));
+            editor.putString("SnailLng", intent.getStringExtra("SnailLng"));
+            editor.commit();
+        }
+
+        if(prefs.contains("SnailLat") && prefs.contains("SnailLng"))
+        {
+            mSnailPosition = new LatLng(Double.parseDouble(prefs.getString("SnailLat", "0")),
+                    Double.parseDouble(prefs.getString("SnailLng", "0")));
+        }
     }
 
     @Override
@@ -46,16 +69,11 @@ public class AssassinSnail extends Activity  {
     protected void onStart() {
         super.onStart();
 
-        if(this.getPreferences(0).contains("SnailPosition"))
-        {
-            //load here
-        }
-        else
+        if(mSnailPosition == null)
         {
             Intent intent = new Intent(this, StartHunt.class);
             startActivity(intent);
             finish();
         }
-
     }
 }

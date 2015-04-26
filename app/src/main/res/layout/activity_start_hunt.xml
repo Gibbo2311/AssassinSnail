@@ -20,7 +20,9 @@
         android:text="@string/startButton"
         android:id="@+id/startbutton"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:enabled="false"
+        android:onClick="beHuntedPressed"/>
 
     <FrameLayout
         android:layout_width="fill_parent"
