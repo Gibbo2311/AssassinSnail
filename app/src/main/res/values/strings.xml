@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Assassin Snail</string>
+    <string name="title_activity_assasin_snail">AssassinSnail</string>
+    <string name="title_activity_initial_screen">InitialScreen</string>
+
+    <string name="start">Begin Hunt!</string>
+    <string name="action_settings">Settings</string>
+</resources>
