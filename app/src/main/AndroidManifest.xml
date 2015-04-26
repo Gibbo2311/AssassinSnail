@@ -26,18 +26,39 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".AssassinSnail"
+            android:name=".AssassinSnailMap"
             android:label="@string/title_activity_assasin_snail" >
-
         </activity>
         <activity
-            android:name=".InitialScreen"
+            android:name=".AssassinSnail"
             android:label="@string/title_activity_initial_screen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".TestActivity"
+            android:label="@string/title_activity_test"
+            android:parentActivityName=".AssassinSnail" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.scottwgibson.assassinsnail.AssassinSnail" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".StartHunt"
+            android:label="@string/title_activity_start_hunt"
+            android:parentActivityName=".AssassinSnail" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.scottwgibson.assassinsnail.AssassinSnail" />
         </activity>
     </application>
 

@@ -1,29 +1,26 @@
 package com.scottwgibson.assassinsnail;
 
-import android.content.Intent;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 
 
-import java.io.Serializable;
-
-public class AssassinSnail extends Activity  {
+public class StartHunt extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.activity_initial_screen);
+        setContentView(R.layout.activity_start_hunt);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_initial_screen, menu);
+        getMenuInflater().inflate(R.menu.menu_start_hunt, menu);
         return true;
     }
 
@@ -40,21 +37,5 @@ public class AssassinSnail extends Activity  {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        if(this.getPreferences(0).contains("SnailPosition"))
-        {
-            //load here
-        }
-        else
-        {
-            Intent intent = new Intent(this, StartHunt.class);
-            startActivity(intent);
-        }
-
     }
 }

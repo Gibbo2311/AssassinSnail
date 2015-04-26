@@ -4,5 +4,14 @@
     <string name="title_activity_initial_screen">InitialScreen</string>
 
     <string name="start">Begin Hunt!</string>
+    <string name="locationupdated">Location Updated</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_start_hunt">StartHunt</string>
+
+    <string name="explanation">
+        The assassin snail will be coming for you at all times.
+        How long can you last?
+    </string>
+    <string name="startButton">Be Hunted!</string>
 </resources>
