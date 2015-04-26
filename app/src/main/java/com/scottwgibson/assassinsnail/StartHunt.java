@@ -1,13 +1,22 @@
 package com.scottwgibson.assassinsnail;
 
 import android.app.Activity;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
+import com.google.android.gms.maps.MapFragment;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 
-public class StartHunt extends Activity {
+public class StartHunt extends Activity implements OnMapReadyCallback {
+
+    private GoogleMap mMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,5 +46,18 @@ public class StartHunt extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ((MapFragment)getFragmentManager().findFragmentById(R.id.mapfragment)).getMapAsync(this);
+    }
+
+    public void onMapReady(GoogleMap googleMap)
+    {
+        mMap = googleMap;
+        mMap.addMarker(new MarkerOptions().position(new LatLng(0,0)).title("SNAIL"));
+        mMap.setMyLocationEnabled(true);
     }
 }

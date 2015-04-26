@@ -54,6 +54,7 @@ public class AssassinSnail extends Activity  {
         {
             Intent intent = new Intent(this, StartHunt.class);
             startActivity(intent);
+            finish();
         }
 
     }

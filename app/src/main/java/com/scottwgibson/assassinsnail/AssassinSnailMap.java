@@ -157,6 +157,7 @@ public class AssassinSnailMap extends FragmentActivity implements
                 setUpMap();
             }
         }
+        this.setUpMap();
     }
 
     /**
@@ -166,9 +167,7 @@ public class AssassinSnailMap extends FragmentActivity implements
      * This should only be called once and when we are sure that {@link #m_Map} is not null.
      */
     private void setUpMap() {
-
-        LatLng pos = new LatLng(m_CurrentLocation.getLatitude(), m_CurrentLocation.getLongitude());
-        m_Map.addMarker(new MarkerOptions().position(pos).title("SNAIL"));
+        m_Map.addMarker(new MarkerOptions().position(new LatLng(0,0)).title("SNAIL"));
         m_Map.setMyLocationEnabled(true);
     }
 }
